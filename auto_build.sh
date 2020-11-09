@@ -143,7 +143,7 @@ echo -e "\033[32;1m设置基本信息...\033[0m"
 echo -e "请输入打包方式编号 \033[33;1m [1:app-store 2:ad-hoc 3:development 4:enterprise]\033[0m"
 
 read -r -t 5 number
-if [[ $number != 1 ]] || [[ $number != 2 ]] || [[ $number != 3 ]] || [[ $number != 4 ]]; then
+if [[ $number != 1 && $number != 2 && $number != 3 && $number != 4 ]]; then
     number=2
 fi
 
