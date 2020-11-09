@@ -122,7 +122,7 @@ else
     do
         echo -e "${i}: ${xcode_paths[$i]}"
     done
-    read number
+    read  -r -t 5 number
 fi
 
 length=`expr ${#xcode_paths[*]} - 1`
@@ -142,12 +142,10 @@ echo -e "\033[32;1m设置基本信息...\033[0m"
 # method，打包的方式。方式分别为 development, ad-hoc, app-store, enterprise 。必填
 echo -e "请输入打包方式编号 \033[33;1m [1:app-store 2:ad-hoc 3:development 4:enterprise]\033[0m"
 
-read number
-while([[ $number != 1 ]] && [[ $number != 2 ]] && [[ $number != 3 ]] && [[ $number != 4 ]])
-do
-echo -e "请输入打包方式编号 \033[33;1m [1:app-store 2:ad-hoc 3:development 4:enterprise]\033[0m"
-read number
-done
+read -r -t 5 number
+if [[ $number != 1 ]] || [[ $number != 2 ]] || [[ $number != 3 ]] || [[ $number != 4 ]]; then
+    number=2
+fi
 
 if [ $number == 1 ];then
 method="app-store"
